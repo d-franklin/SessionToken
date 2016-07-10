@@ -6,8 +6,8 @@ A light weight session token with integrity assurance, written in C#.
 
 This was written with the express purpose of creating session tokens which meet following requirements:
 
-1) The token requires encryption
-2) The token requires integrity assurance
+* The token requires encryption
+* The token requires integrity assurance
 
 SessionToken uses ProtoBuf and [Authenticated Encryption with Associated Data](https://en.wikipedia.org/wiki/Authenticated_encryption) which meets both requirements listed above.
 
