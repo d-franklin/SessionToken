@@ -25,8 +25,11 @@ SessionToken uses ProtoBuf and [Authenticated Encryption with Associated Data](h
 // AuthenticatedEncryption
 IAuthenticatedEncryption authenticatedEncryption = new AuthenticatedEncryption("secreteKey");
 
-// TokenFactory
+// TokenFactory with default expiry of 1 day
 ITokenFactory tokenFactory = new TokenFactory(authenticatedEncryption);
+
+// TokenFactory with custom expiry
+ITokenFactory tokenFactory = new TokenFactory(authenticatedEncryption, TimeSpan.FromDays(30));
 
 int userId = 123;
 string sessionId = "123"
