@@ -42,6 +42,7 @@ Token token;
 bool successRenew = tokenFactory.RenewToken(tokenEncrypted, out token);
 
 // Decrypt token. Returns boolean on decryption success/failure.
+Token token;
 bool successDecrypt = tokenFactory.DencryptToken(tokenEncrypted, out token);
 ````
 
