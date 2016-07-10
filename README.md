@@ -19,6 +19,29 @@ SessionToken uses ProtoBuf and [Authenticated Encryption with Associated Data](h
 >
 > [Crypto++](https://www.cryptopp.com/wiki/Authenticated_Encryption)
 
+#### Usage
+
+````
+// AuthenticatedEncryption
+IAuthenticatedEncryption authenticatedEncryption = new AuthenticatedEncryption("secreteKey");
+
+// TokenFactory
+ITokenFactory tokenFactory = new TokenFactory(authenticatedEncryption);
+
+int userId = 123;
+string sessionId = "123"
+
+// Create token. Returns encrypted token as base64 string.
+string tokenEncrypted = tokenFactory.GenerateToken(userId, sessionId);
+
+// Renew token. Returns boolean on renewal success/failure.
+Token token;
+bool successRenew = tokenFactory.RenewToken(tokenEncrypted, out token);
+
+// Decrypt token. Returns boolean on decryption success/failure.
+bool successDecrypt = tokenFactory.DencryptToken(tokenEncrypted, out token);
+````
+
 #### Dependancies
 
 * inferno ([http://securitydriven.net/inferno/](http://securitydriven.net/inferno/))
